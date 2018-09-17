@@ -5,17 +5,17 @@
 const puppeteer = require('puppeteer');
 const mainPageUrl = 'https://mirror.co';
 
-async function loadPage() {
+async function loadPage(url = mainPageUrl) {
     const browser = await puppeteer.launch({headless: false});
     const page = await browser.newPage();
-    await page.goto(mainPageUrl);
+    await page.goto(url);
 
     return page;
 }
 
 var transitionEventSetup = false;
 async function addRandomItemToCart(page) {
-    //Setup an event to automatically close the cart when it opens.
+    //Setup an event to automatically close the cart when it opens, so the cart overlay doesn't block any clicks meant for other UI elements.
     if(!transitionEventSetup) {
         await setupTransitionEventHandlers(page);
     }
@@ -152,6 +152,8 @@ async function isMenuVisible(page) {
 
 module.exports = {
     loadPage: loadPage,
+    loginToAccount: loginToAccount,
+    addMirrorToCart: addMirrorToCart,
     addRandomItemToCart: addRandomItemToCart,
     addAccessoryAtIndexToCart: addAccessoryAtIndexToCart,
     checkoutCart: checkoutCart
