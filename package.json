@@ -1,0 +1,19 @@
+{
+  "name": "mirror-puppeteer",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "jest",
+    "start": "node src/entry.js"
+  },
+  "author": "Zach Hill",
+  "license": "ISC",
+  "dependencies": {
+    "puppeteer": "^1.8.0"
+  },
+  "devDependencies": {
+    "eslint": "^5.5.0",
+    "jest": "^23.6.0"
+  }
+}
