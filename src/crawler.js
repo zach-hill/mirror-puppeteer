@@ -5,8 +5,8 @@
 const puppeteer = require('puppeteer');
 const mainPageUrl = 'https://mirror.co';
 
-async function loadPage(url = mainPageUrl) {
-    const browser = await puppeteer.launch({headless: false});
+async function loadPage(url = mainPageUrl, headless = false) {
+    const browser = await puppeteer.launch({headless: headless});
     const page = await browser.newPage();
     await page.goto(url);
 
